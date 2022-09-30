@@ -77,8 +77,8 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 30px;
-  color: #b4777e;
-  -webkit-text-stroke: 1px #b4777e;
+  color: indianred;
+  -webkit-text-stroke: 1px indianred;
 }
 
 
@@ -116,10 +116,10 @@ label {
 }
 .addButtonStyles {
   background-color: #fff;
-  border: 2px solid #e07f8a;
+  border: 2px solid indianred;
   border-radius: 30px;
-  box-shadow: #fed4d8 4px 4px 0 0;
-  color: #e07f8a;
+  box-shadow: #fed4d8 5px 5px 0 0;
+  color: indianred;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
