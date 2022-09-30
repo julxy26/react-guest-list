@@ -36,3 +36,207 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+body {
+
+  display: flex;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #282c34;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("animal-background.jpg");
+  background-repeat: repeat-x;
+  background-position-y: bottom;
+  background-size:auto 50%;
+  overflow: hidden;
+  background-color: #b4777e;
+
+
+
+}
+
+
+.divStyles {
+  margin-top: 62px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px 60px 15px 60px;
+  height: 240px;
+  width: 510px;
+  border: 5px solid white
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  color: #b4777e;
+  -webkit-text-stroke: 1px #b4777e;
+}
+
+
+
+
+.nameInputStyles {
+  border: none;
+  border-bottom: 1px solid indianred;
+  cursor: text;
+  width: 150px;
+  height: 20px;
+  margin-top: 14px;
+  background-color: rgba(245, 245, 245, 0.6);
+}
+
+.nameInputStyles:focus {
+  background-color: rgba(245, 245, 245, 0.6);
+  outline: none;
+}
+
+
+label {
+  color: indianred;
+  font-weight: 500;
+  margin: 0 8px;
+}
+
+.inputTextStyles{
+  margin-right: 5px;
+}
+.addButtonDivStyles {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+.addButtonStyles {
+  background-color: #fff;
+  border: 2px solid #e07f8a;
+  border-radius: 30px;
+  box-shadow: #fed4d8 4px 4px 0 0;
+  color: #e07f8a;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 18px;
+  line-height: 35px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-transform: uppercase;
+  margin-right: 9px;
+
+}
+
+.addButtonStyles:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #fed4d8;
+  color: #422800;
+  border: 2px solid #422800;
+
+}
+
+.addButtonStyles:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+
+.loadingStyles {
+  font-weight: bolder;
+  color:indianred;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  border-radius: 19px;
+  text-align: center;
+  width: 150px;
+  margin-left: 9px;
+  margin-top: -14px;
+
+}
+
+
+.guestDivStyles{
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border: 3px solid #b4777e; */
+  margin-top: 15px;
+  padding: 16px 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between
+}
+
+.guestNameStyles{
+  font-weight: 600;
+  color: indianred;
+  border: 1px solid indianred;
+  border-radius: 15px;
+  padding: 7px 16px;
+  margin-left: 70px;
+}
+
+.buttonsOnRightStyles{
+  margin-right: 77px;
+}
+
+
+.checkboxStyles{
+  margin-left: 20px;
+}
+
+.attendingStyles{
+  margin-right: 60px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.removeButtonStyles{
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 10px;
+  min-height: 25px;
+  outline: 0;
+  padding: 12px 12px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.removeButtonStyles:hover,
+.removeButtonStyles:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.removeButtonStyles:active {
+  opacity: .5;
+}
