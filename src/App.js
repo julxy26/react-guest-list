@@ -1,20 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 
-// input with label First name, Last name x
-// guest created upon pressing return x
-// clear input after creating x
-// newly created guests > not attending by default
-// each guest must be inside a div with attr id
-
-// delete button "Remove" with aria-label "Remove <first and last name>" x
-// set to "attending" by clicking checkbox aria "<first and last name> attending"
-// first click > attending; second click > not attending
-
-// save changes to API and load list from API
-// show "Loading..." when page first loads
-// disable form fields
-
 function App() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -74,7 +60,7 @@ function App() {
       body: JSON.stringify({ attending: true }),
     });
     const data = await response.json();
-    console.log(`${data.firstName} is attending!`);
+    console.log(`🎉 ${data.firstName} is attending!`);
   };
 
   const changeBackToNotAttend = async function (id) {
@@ -86,7 +72,7 @@ function App() {
       body: JSON.stringify({ attending: false }),
     });
     const data = await response.json();
-    console.log(`${data.firstName} is not attending!`);
+    console.log(`😭 ${data.firstName} is not attending!`);
   };
 
   return (
@@ -98,8 +84,8 @@ function App() {
             e.preventDefault();
           }}
         >
-          <label htmlFor="firstName">
-            <span className="inputTextStyles">First name</span>
+          <label htmlFor="firstName" className="inputTextStyles">
+            First name
             <input
               className="nameInputStyles"
               name="firstName"
@@ -115,8 +101,8 @@ function App() {
             />
           </label>
 
-          <label htmlFor="lastName">
-            <span className="inputTextStyles">Last name</span>
+          <label htmlFor="lastName" className="inputTextStyles">
+            Last name
             <input
               className="nameInputStyles"
               name="lastName"
@@ -144,7 +130,11 @@ function App() {
 
       {guestList.map((guest) => {
         return (
-          <div className="guestDivStyles" key={`guest-${guest.id}`}>
+          <div
+            className="guestDivStyles"
+            key={`guest-${guest.id}`}
+            data-test-id="guest"
+          >
             <span className="guestNameStyles">
               {guest.firstName} {guest.lastName}
             </span>
@@ -153,6 +143,7 @@ function App() {
               <input
                 className="checkboxStyles"
                 type="checkbox"
+                aria-label={`${guest.firstName} ${guest.lastName} attending status`}
                 checked={guest.attending}
                 onChange={async () => {
                   if (guest.attending === false) {
