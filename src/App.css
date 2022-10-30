@@ -63,10 +63,10 @@ body {
   margin-top: 62px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 40px 60px 15px 60px;
+  padding: 46px 60px 15px 60px;
   height: 240px;
   width: 510px;
-  border: 5px solid white
+  border: 2px solid white
 }
 
 h1 {
@@ -170,7 +170,6 @@ label {
 
 .guestDivStyles{
   background-color: rgba(255, 255, 255, 0.9);
-  /* border: 3px solid #b4777e; */
   margin-top: 15px;
   padding: 16px 0;
   border-radius: 10px;
