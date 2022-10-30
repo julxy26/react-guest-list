@@ -51,13 +51,21 @@ body {
   height: 100vh;
   background-image: url("animal-background.jpg");
   background-repeat: repeat-x;
-  background-position-y: bottom;
+  background-position: bottom;
   background-size:auto 50%;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #b4777e;
+  background-attachment: fixed;
 
 
 
+}
+
+.mainBodyStyles {
+  /* background-color: #b4777e;
+  /* height: 300px;
+  height: 100%;
+  padding: 30px; */
 }
 
 
@@ -172,7 +180,7 @@ label {
 
 
 .guestDivStyles{
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   /* border: 3px solid #b4777e; */
   margin-top: 15px;
   padding: 16px 0;
