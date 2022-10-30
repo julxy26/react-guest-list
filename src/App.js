@@ -94,89 +94,87 @@ function App() {
 
   return (
     <div>
-      <div className="mainBodyStyles">
-        <div className="divStyles">
-          <h1>Guest List</h1>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <label htmlFor="firstName">
-              <span className="inputTextStyles">First name</span>
-              <input
-                className="nameInputStyles"
-                name="firstName"
-                value={firstName}
-                autoComplete="off"
-                onChange={(e) => {
-                  setFirstName(
-                    e.currentTarget.value.charAt(0).toUpperCase() +
-                      e.currentTarget.value.slice(1),
-                  );
-                }}
-              />
-            </label>
+      <div className="divStyles">
+        <h1>Guest List</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <label htmlFor="firstName">
+            <span className="inputTextStyles">First name</span>
+            <input
+              className="nameInputStyles"
+              name="firstName"
+              value={firstName}
+              autoComplete="off"
+              onChange={(e) => {
+                setFirstName(
+                  e.currentTarget.value.charAt(0).toUpperCase() +
+                    e.currentTarget.value.slice(1),
+                );
+              }}
+            />
+          </label>
 
-            <label htmlFor="lastName">
-              <span className="inputTextStyles">Last name</span>
+          <label htmlFor="lastName">
+            <span className="inputTextStyles">Last name</span>
+            <input
+              className="nameInputStyles"
+              name="lastName"
+              value={lastName}
+              autoComplete="off"
+              onChange={(e) => {
+                setLastName(
+                  e.currentTarget.value.charAt(0).toUpperCase() +
+                    e.currentTarget.value.slice(1),
+                );
+              }}
+            />
+          </label>
+          <div className="addButtonDivStyles">
+            <button className="addButtonStyles" onClick={createGuest}>
+              Add guest
+            </button>
+          </div>
+        </form>
+        {guestList.length < 1 && (
+          <div className="loadingStyles">loading...</div>
+        )}
+      </div>
+
+      {guestList.map((guest) => {
+        return (
+          <div className="guestDivStyles" key={`guest-${guest.id}`}>
+            <span className="guestNameStyles">
+              {guest.firstName} {guest.lastName}
+            </span>
+
+            <div className="buttonsOnRightStyles">
               <input
-                className="nameInputStyles"
-                name="lastName"
-                value={lastName}
-                autoComplete="off"
-                onChange={(e) => {
-                  setLastName(
-                    e.currentTarget.value.charAt(0).toUpperCase() +
-                      e.currentTarget.value.slice(1),
-                  );
+                className="checkboxStyles"
+                type="checkbox"
+                checked={guest.attending}
+                onChange={async () => {
+                  if (guest.attending === false) {
+                    await changeToAttend(guest.id);
+                  } else if (guest.attending === true) {
+                    await changeBackToNotAttend(guest.id);
+                  }
                 }}
               />
-            </label>
-            <div className="addButtonDivStyles">
-              <button className="addButtonStyles" onClick={createGuest}>
-                Add guest
+              <span className="attendingStyles">attending</span>
+              <button
+                className="removeButtonStyles"
+                aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
+                onClick={() => removeGuest(guest.id)}
+              >
+                Remove
               </button>
             </div>
-          </form>
-          {guestList.length < 1 && (
-            <div className="loadingStyles">loading...</div>
-          )}
-        </div>
-
-        {guestList.map((guest) => {
-          return (
-            <div className="guestDivStyles" key={`guest-${guest.id}`}>
-              <span className="guestNameStyles">
-                {guest.firstName} {guest.lastName}
-              </span>
-
-              <div className="buttonsOnRightStyles">
-                <input
-                  className="checkboxStyles"
-                  type="checkbox"
-                  checked={guest.attending}
-                  onChange={async () => {
-                    if (guest.attending === false) {
-                      await changeToAttend(guest.id);
-                    } else if (guest.attending === true) {
-                      await changeBackToNotAttend(guest.id);
-                    }
-                  }}
-                />
-                <span className="attendingStyles">attending</span>
-                <button
-                  className="removeButtonStyles"
-                  aria-label={`Remove ${guest.firstName} ${guest.lastName}`}
-                  onClick={() => removeGuest(guest.id)}
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
