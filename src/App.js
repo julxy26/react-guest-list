@@ -18,7 +18,6 @@ import { useEffect, useState } from 'react';
 function App() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [attending, setAttending] = useState(false);
   const [guestList, setGuestList] = useState([]);
   const baseUrl =
     'https://express-guest-list-api-memory-data-store.julxy26.repl.co';
@@ -34,7 +33,7 @@ function App() {
     getAllGuests().catch((error) => {
       console.log(error);
     });
-  }, [guestList, attending]);
+  }, [guestList]);
 
   async function createGuest() {
     const response = await fetch(`${baseUrl}/guests`, {
@@ -75,7 +74,6 @@ function App() {
       body: JSON.stringify({ attending: true }),
     });
     const data = await response.json();
-    setAttending(true);
     console.log(`${data.firstName} is attending!`);
   };
 
@@ -88,7 +86,6 @@ function App() {
       body: JSON.stringify({ attending: false }),
     });
     const data = await response.json();
-    setAttending(false);
     console.log(`${data.firstName} is not attending!`);
   };
 
@@ -107,6 +104,7 @@ function App() {
               className="nameInputStyles"
               name="firstName"
               value={firstName}
+              required
               autoComplete="off"
               onChange={(e) => {
                 setFirstName(
@@ -123,6 +121,7 @@ function App() {
               className="nameInputStyles"
               name="lastName"
               value={lastName}
+              required
               autoComplete="off"
               onChange={(e) => {
                 setLastName(
