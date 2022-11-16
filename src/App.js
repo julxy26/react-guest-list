@@ -124,7 +124,7 @@ function App() {
           </div>
         </form>
         {guestList.length < 1 && (
-          <div className="loadingStyles">loading...</div>
+          <div className="loadingStyles">Loading...</div>
         )}
       </div>
 
